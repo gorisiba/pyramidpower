@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<center>
+	<div id="box"></div>
+	</center>
+</body>
+<script type="text/javascript">
+for(var i=1;i<=8;i++){
+	for(var j=1;j<=i;j++){
+		document.getElementById("box").innerHTML += '<input type="text" class='+ i +' size="3" value="0">';
+	}
+	document.getElementById("box").innerHTML +="<br>";
+}
+document.getElementsByClassName("2")[1].value="138";
+document.getElementsByClassName("3")[0].value="80";
+document.getElementsByClassName("4")[3].value="43";
+document.getElementsByClassName("5")[0].value = "29";
+document.getElementsByClassName("5")[2].value = "15";
+document.getElementsByClassName("6")[5].value="18";
+document.getElementsByClassName("7")[4].value="3";
+document.getElementsByClassName("8")[3].value="3";
+setInterval("cal()",1000);
+function cal(){
+for(var i=8;i>=1;i--){
+	for(var j=i;j>=1;j--){
+		//console.log(j);
+		if(document.getElementsByClassName(i)[j-1].value!="0"){
+			//console.log(document.getElementsByClassName(i)[j-1].value);
+			if(j!=1){
+				n = document.getElementsByClassName(i)[j-1].value
+				nmin = document.getElementsByClassName(i)[j-2].value;
+				res = parseInt(n) + parseInt(nmin);
+				console.log(res);
+				if(nmin!="0"){
+					document.getElementsByClassName(i-1)[j-2].value = res;
+				}
+				
+			}
+		}
+	}
+}
+}
+</script>
+</html>
